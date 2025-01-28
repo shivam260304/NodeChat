@@ -113,14 +113,23 @@ export const update = async (req,res) =>{
 export const checkAuth = (req, res) => {
   try {
     const user = req.user;
-    if(user){
-      res.status(200).json(req.user._id);
+    if (user) {
+      res.status(200).json({
+        _id: user._id,
+        fullname: user.fullname,
+        email: user.email,
+        profilePic: user.profilePic,  // Include profilePic here
+        createdAt: user.createdAt,
+      });
+    } else {
+      res.status(404).json({ message: "User not found" });
     }
   } catch (error) {
     console.log("Error in checkAuth controller:", error.message);
     res.status(500).json({ message: "Internal Server Error" });
   }
 };
+
 
 
 

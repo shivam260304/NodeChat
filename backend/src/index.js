@@ -13,6 +13,7 @@ const app = express ();
 
 // This will help express to extract the json data out of req.body
 app.use(express.json());
+app.use(express.urlencoded({extended: true })); 
 app.use(cookieParser());
 app.use(cors({
     origin: "http://localhost:5173",
@@ -24,7 +25,7 @@ app.get('/', (req,res) =>{
 })
 
 app.use('/api/auth', authRoutes);
-app.use('/api/message', messageRoutes);
+app.use('/api/messages', messageRoutes);
 
 app.listen(port, () =>{
     console.log(`Server is running on port ${port}`);
