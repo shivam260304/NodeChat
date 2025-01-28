@@ -1,14 +1,5 @@
 import { useState } from "react";
 import { useAuthStore } from "../store/useAuthStore";
-import {
-  Eye,
-  EyeOff,
-  Mail,
-  MessageSquare,
-  User,
-  Lock,
-  Loader2,
-} from "lucide-react";
 import { Link } from "react-router-dom";
 import toast from "react-hot-toast";
 
